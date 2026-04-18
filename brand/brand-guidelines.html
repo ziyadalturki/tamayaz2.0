@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamayaz — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand colors — exact values from your logo */
+    --navy: #0D203B;
+    --navy-900: #050F1F;
+    --navy-700: #1A3055;
+    --navy-500: #2D4870;
+    --gold: #B68D3B;
+    --gold-dark: #8F6E26;
+    --gold-light: #D4AE5E;
+    --ivory: #FAF8F3;
+    --stone-100: #EFEBE2;
+    --stone-300: #C9C2B3;
+    --stone-600: #6B6558;
+    --ink: #1A1A1A;
+
+    /* Semantic */
+    --success: #2F6B4A;
+    --warning: #B8732E;
+    --error: #9E2A2B;
+    --info: #2C5282;
+
+    /* System */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-arabic: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--ink);
+    background: var(--ivory);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============ LAYOUT ============ */
+  .hero {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 120px 60px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    opacity: 0.08;
+    border-radius: 50%;
+  }
+  .hero-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  .hero .arabic-name {
+    font-family: var(--font-arabic);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 500;
+    margin-bottom: 32px;
+    direction: rtl;
+  }
+  .hero-tagline {
+    font-size: 20px;
+    color: var(--stone-300);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    font-size: 13px;
+    color: var(--stone-300);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+  .hero-meta span strong {
+    display: block;
+    color: var(--ivory);
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 0;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--stone-300);
+    padding: 20px 60px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(250, 248, 243, 0.95);
+  }
+  nav.toc ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  nav.toc a {
+    color: var(--stone-600);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav.toc a:hover { color: var(--navy); }
+
+  section {
+    padding: 100px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  section.dark {
+    background: var(--navy);
+    color: var(--ivory);
+    max-width: none;
+  }
+  section.dark .section-inner { max-width: 1400px; margin: 0 auto; }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    color: var(--navy);
+  }
+  section.dark h2 { color: var(--ivory); }
+  .section-lead {
+    font-size: 18px;
+    color: var(--stone-600);
+    max-width: 700px;
+    margin-bottom: 60px;
+    line-height: 1.6;
+  }
+  section.dark .section-lead { color: var(--stone-300); }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+  }
+  section.dark h3 { color: var(--ivory); }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--stone-600);
+    margin-bottom: 12px;
+  }
+
+  p { margin-bottom: 16px; color: var(--ink); }
+  section.dark p { color: var(--stone-300); }
+
+  /* ============ LOGO SECTION ============ */
+  .logo-showcase {
+    background: var(--ivory);
+    border: 1px solid var(--stone-300);
+    border-radius: 16px;
+    padding: 80px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .logo-showcase img { max-width: 400px; width: 100%; }
+
+  .logo-variants {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .logo-variant {
+    border-radius: 12px;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-variant-navy { background: var(--navy); }
+  .logo-variant-ivory { background: var(--ivory); border: 1px solid var(--stone-300); }
+  .logo-variant-gold { background: var(--gold); }
+  .logo-variant-white { background: #FFFFFF; border: 1px solid var(--stone-300); }
+
+  .logo-variant img { max-width: 180px; width: 100%; }
+  .logo-variant-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .logo-variant-navy .logo-variant-label { color: var(--gold); }
+  .logo-variant-ivory .logo-variant-label { color: var(--stone-600); }
+  .logo-variant-gold .logo-variant-label { color: var(--navy); }
+  .logo-variant-white .logo-variant-label { color: var(--stone-600); }
+
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .rule-block h4 { margin-bottom: 24px; }
+  .rule-block ul { list-style: none; padding: 0; }
+  .rule-block li {
+    padding: 14px 0 14px 32px;
+    border-bottom: 1px solid var(--stone-300);
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .rule-block li:last-child { border-bottom: none; }
+  .rule-block.do li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .rule-block.dont li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--error);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  /* ============ COLORS ============ */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .color-swatch {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--stone-300);
+    transition: transform 0.2s;
+  }
+  .color-swatch:hover { transform: translateY(-4px); }
+  .color-sample {
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 20px;
+    font-family: var(--font-serif);
+    font-size: 32px;
+  }
+  .color-info {
+    background: var(--ivory);
+    padding: 16px 20px;
+    font-size: 12px;
+  }
+  .color-info strong {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .color-info .hex {
+    font-family: 'SF Mono', Menlo, monospace;
+    color: var(--stone-600);
+    margin-bottom: 2px;
+  }
+  .color-info .rgb {
+    font-family: 'SF Mono', Menlo, monospace;
+    color: var(--stone-600);
+    font-size: 11px;
+  }
+
+  .usage-ratio {
+    background: var(--ivory);
+    border: 1px solid var(--stone-300);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .ratio-bar {
+    display: flex;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0 20px;
+    border: 1px solid var(--stone-300);
+  }
+  .ratio-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .ratio-labels {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--stone-600);
+    flex-wrap: wrap;
+  }
+  .ratio-labels span strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  .type-specimen {
+    background: var(--ivory);
+    border: 1px solid var(--stone-300);
+    border-radius: 12px;
+    padding: 48px;
+    margin-bottom: 24px;
+  }
+  .type-specimen-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--stone-300);
+  }
+  .type-specimen-meta h4 { margin: 0; }
+  .type-specimen-meta code {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    color: var(--stone-600);
+  }
+
+  .type-sample-arabic {
+    font-family: var(--font-arabic);
+    direction: rtl;
+    text-align: right;
+  }
+  .type-sample-latin {
+    font-family: var(--font-sans);
+  }
+
+  .type-scale-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 120px;
+    gap: 24px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--stone-100);
+  }
+  .type-scale-row:last-child { border-bottom: none; }
+  .type-scale-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone-600);
+    font-weight: 500;
+  }
+  .type-scale-specs {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    color: var(--stone-600);
+    text-align: right;
+  }
+
+  /* ============ VOICE ============ */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .voice-pill {
+    background: var(--ivory);
+    border: 1px solid var(--stone-300);
+    border-radius: 12px;
+    padding: 32px 28px;
+  }
+  .voice-pill-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .voice-pill h3 { margin-bottom: 12px; }
+  .voice-pill p { font-size: 15px; line-height: 1.6; color: var(--stone-600); margin: 0; }
+
+  .voice-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .voice-example {
+    padding: 28px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .voice-example.good {
+    background: #EEF5F0;
+    border: 1px solid #BDD9C5;
+  }
+  .voice-example.bad {
+    background: #F9EEEE;
+    border: 1px solid #E4C4C4;
+  }
+  .voice-example-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .voice-example.good .voice-example-label { color: var(--success); }
+  .voice-example.bad .voice-example-label { color: var(--error); }
+  .voice-example p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* ============ APPLICATIONS ============ */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .app-mockup {
+    background: var(--ivory);
+    border: 1px solid var(--stone-300);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .app-mockup-preview {
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .app-mockup-label {
+    padding: 20px 24px;
+    border-top: 1px solid var(--stone-300);
+    background: #FFFFFF;
+  }
+  .app-mockup-label strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+  .app-mockup-label span { font-size: 13px; color: var(--stone-600); }
+
+  /* Favicon mockup */
+  .fav-browser {
+    width: 340px;
+    background: #F0EEE6;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(13, 32, 59, 0.15);
+  }
+  .fav-browser-bar {
+    background: #E4E0D4;
+    padding: 10px 12px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .fav-browser-dot { width: 10px; height: 10px; border-radius: 50%; background: #C9C2B3; }
+  .fav-browser-tab {
+    background: #FFFFFF;
+    padding: 8px 14px;
+    border-radius: 8px 8px 0 0;
+    margin-left: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .fav-icon {
+    width: 16px; height: 16px;
+    background: var(--navy);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-arabic);
+  }
+
+  /* App icon mockup */
+  .app-icon-mockup {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 30px;
+    width: 280px;
+  }
+  .app-icon {
+    aspect-ratio: 1;
+    background: var(--navy);
+    border-radius: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(13, 32, 59, 0.2);
+    position: relative;
+  }
+  .app-icon.featured {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-700) 100%);
+  }
+  .app-icon-generic { background: #E4E0D4; }
+  .app-icon-generic-2 { background: var(--gold); }
+  .app-icon-generic-3 { background: var(--success); }
+
+  /* Business card mockup */
+  .card-mockup {
+    width: 340px;
+    height: 200px;
+    background: var(--ivory);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(13, 32, 59, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .card-mockup-logo {
+    width: 60px;
+    height: 60px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: var(--font-arabic);
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .card-mockup-name {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .card-mockup-title {
+    font-size: 11px;
+    color: var(--stone-600);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Social mockup */
+  .social-mockup {
+    width: 300px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(13, 32, 59, 0.1);
+    overflow: hidden;
+  }
+  .social-header {
+    background: var(--navy);
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .social-avatar {
+    width: 56px;
+    height: 56px;
+    background: var(--ivory);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    font-family: var(--font-arabic);
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .social-handle { color: var(--ivory); }
+  .social-handle strong { display: block; font-size: 16px; margin-bottom: 2px; }
+  .social-handle span { font-size: 13px; color: var(--stone-300); }
+  .social-body {
+    padding: 20px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  /* ============ DEV TOKENS ============ */
+  .code-block {
+    background: var(--navy-900);
+    color: var(--ivory);
+    border-radius: 12px;
+    padding: 32px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+  .code-block .token-comment { color: #6B8AC5; }
+  .code-block .token-property { color: var(--gold-light); }
+  .code-block .token-value { color: #E8DCC0; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--navy-900);
+    color: var(--stone-300);
+    padding: 60px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer strong { color: var(--ivory); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .hero { padding: 80px 24px 60px; }
+    section { padding: 60px 24px; }
+    nav.toc { padding: 16px 24px; }
+    nav.toc ul { gap: 20px; font-size: 12px; }
+    .dos-donts { grid-template-columns: 1fr; }
+    .voice-examples { grid-template-columns: 1fr; }
+    .logo-showcase { padding: 40px 20px; }
+    .type-specimen { padding: 24px; }
+    .type-scale-row { grid-template-columns: 100px 1fr; }
+    .type-scale-row .type-scale-specs { display: none; }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-label">Brand Guidelines · v1.0</div>
+  <h1>Tamayaz</h1>
+  <div class="arabic-name">تميّز</div>
+  <p class="hero-tagline">The AI-powered career copilot for professionals in Saudi Arabia and the Gulf. This document is the source of truth for how Tamayaz looks, speaks, and feels.</p>
+  <div class="hero-meta">
+    <span>Released<strong>April 2026</strong></span>
+    <span>Version<strong>1.0</strong></span>
+    <span>Status<strong>Living document</strong></span>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="toc">
+  <ul>
+    <li><a href="#foundation">01 — Foundation</a></li>
+    <li><a href="#logo">02 — Logo</a></li>
+    <li><a href="#color">03 — Color</a></li>
+    <li><a href="#type">04 — Typography</a></li>
+    <li><a href="#voice">05 — Voice</a></li>
+    <li><a href="#applications">06 — Applications</a></li>
+    <li><a href="#tokens">07 — Developer tokens</a></li>
+  </ul>
+</nav>
+
+<!-- ============ FOUNDATION ============ -->
+<section id="foundation">
+  <div class="section-number">01 — Foundation</div>
+  <h2>What we stand for</h2>
+  <p class="section-lead">Tamayaz exists because the region's most ambitious professionals deserve more than generic career advice translated from English. Our brand reflects that seriousness of purpose — calm, expert, and rooted in the region we serve.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 40px;">
+    <div>
+      <h4>Essence</h4>
+      <p>The quiet expert in your corner — who knows exactly how hiring works here, what recruiters actually look for, and how to position you so you stand out for the right reasons.</p>
+    </div>
+    <div>
+      <h4>Personality</h4>
+      <p><strong>Expert.</strong> We know the GCC market deeply.<br><strong>Refined.</strong> Calm confidence, never loud.<br><strong>Respectful.</strong> Of your time, privacy, dignity.<br><strong>Empowering.</strong> You're the hero. We're the advisor.</p>
+    </div>
+    <div>
+      <h4>Audience</h4>
+      <p>Ambitious GCC nationals and residents — from fresh graduates navigating their first role to mid-career professionals pursuing the next step. They are serious about their careers and deserve a tool that takes them seriously.</p>
+    </div>
+    <div>
+      <h4>Promise</h4>
+      <p>Apply with confidence. Tamayaz gives you the clarity, the tools, and the regional insight to put your best self forward — in every application, every time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section id="logo" style="background: var(--stone-100);">
+  <div class="section-number">02 — Logo</div>
+  <h2>The mark</h2>
+  <p class="section-lead">Our logo is the primary signature of Tamayaz. It carries the weight of the brand in a single mark, designed to feel confident, modern, and unmistakably rooted in Arabic identity.</p>
+
+  <div class="logo-showcase">
+    <img src="logo-transparent.svg" alt="Tamayaz logo" />
+  </div>
+
+  <h3 style="margin-top: 60px; margin-bottom: 24px;">Logo on backgrounds</h3>
+  <p style="color: var(--stone-600); margin-bottom: 32px;">The logo must always have sufficient contrast with its background. Use these four approved treatments:</p>
+
+  <div class="logo-variants">
+    <div class="logo-variant logo-variant-navy">
+      <img src="logo-transparent.svg" alt="Logo on navy" style="filter: brightness(0) invert(1) sepia(0.3) saturate(3) hue-rotate(5deg);" />
+      <span class="logo-variant-label">On Navy — Primary dark use</span>
+    </div>
+    <div class="logo-variant logo-variant-ivory">
+      <img src="logo-transparent.svg" alt="Logo on ivory" />
+      <span class="logo-variant-label">On Ivory — Primary light use</span>
+    </div>
+    <div class="logo-variant logo-variant-white">
+      <img src="logo-transparent.svg" alt="Logo on white" />
+      <span class="logo-variant-label">On White — Digital neutral</span>
+    </div>
+    <div class="logo-variant logo-variant-gold">
+      <img src="logo-transparent.svg" alt="Logo on gold" style="filter: brightness(0) saturate(100%) invert(10%) sepia(30%) saturate(1500%) hue-rotate(200deg) brightness(40%);" />
+      <span class="logo-variant-label">On Gold — Accent moments only</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 80px;">Clear space & minimum size</h3>
+  <p style="color: var(--stone-600); margin-bottom: 24px;">Always give the logo room to breathe. The minimum clear space on all sides equals the height of the gold accent in the mark. Minimum digital size: <strong>32px</strong> height. Minimum print size: <strong>12mm</strong> height.</p>
+
+  <div class="dos-donts">
+    <div class="rule-block do">
+      <h4>Do</h4>
+      <ul>
+        <li>Use the logo in its approved color combinations only</li>
+        <li>Maintain the minimum clear space at all times</li>
+        <li>Use the SVG version for all digital applications</li>
+        <li>Scale the logo proportionally — always lock aspect ratio</li>
+        <li>Place on solid backgrounds with sufficient contrast</li>
+        <li>Use the full lockup (mark + wordmark) as default</li>
+      </ul>
+    </div>
+    <div class="rule-block dont">
+      <h4>Don't</h4>
+      <ul>
+        <li>Change the colors of the logo — navy and gold are fixed</li>
+        <li>Stretch, skew, rotate, or distort the logo in any way</li>
+        <li>Add effects — no shadows, outlines, gradients, or glows</li>
+        <li>Place on busy photographs or low-contrast backgrounds</li>
+        <li>Recreate the logo in a different font — only use our files</li>
+        <li>Use the logo smaller than 32px or 12mm in height</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color">
+  <div class="section-number">03 — Color</div>
+  <h2>A restrained palette</h2>
+  <p class="section-lead">Our palette is built on contrast: deep authoritative navy against warm ivory, with a single refined gold accent as our signature. Less is more — restraint is what makes the palette feel premium.</p>
+
+  <h3 style="margin-top: 40px;">Primary</h3>
+  <p style="color: var(--stone-600); margin-bottom: 24px;">The core identity colors. Navy carries the brand. Gold is a spice, never a sauce.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #0D203B; color: #FAF8F3;">Aa</div>
+      <div class="color-info">
+        <strong>Midnight Navy</strong>
+        <div class="hex">#0D203B</div>
+        <div class="rgb">RGB 13, 32, 59</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #B68D3B; color: #FAF8F3;">Aa</div>
+      <div class="color-info">
+        <strong>Tamayaz Gold</strong>
+        <div class="hex">#B68D3B</div>
+        <div class="rgb">RGB 182, 141, 59</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #FAF8F3; color: #0D203B; border-bottom: 1px solid var(--stone-300);">Aa</div>
+      <div class="color-info">
+        <strong>Warm Ivory</strong>
+        <div class="hex">#FAF8F3</div>
+        <div class="rgb">RGB 250, 248, 243</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 60px;">Neutrals</h3>
+  <p style="color: var(--stone-600); margin-bottom: 24px;">Supporting tones for text, surfaces, borders, and hierarchy. These do 70% of the work in any interface.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #1A1A1A; color: #FAF8F3;">Aa</div>
+      <div class="color-info">
+        <strong>Ink</strong>
+        <div class="hex">#1A1A1A</div>
+        <div class="rgb">Primary text</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #6B6558; color: #FAF8F3;">Aa</div>
+      <div class="color-info">
+        <strong>Stone 600</strong>
+        <div class="hex">#6B6558</div>
+        <div class="rgb">Secondary text</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #C9C2B3; color: #1A1A1A;">Aa</div>
+      <div class="color-info">
+        <strong>Stone 300</strong>
+        <div class="hex">#C9C2B3</div>
+        <div class="rgb">Borders, dividers</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #EFEBE2; color: #1A1A1A;">Aa</div>
+      <div class="color-info">
+        <strong>Stone 100</strong>
+        <div class="hex">#EFEBE2</div>
+        <div class="rgb">Subtle surfaces</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 60px;">Semantic</h3>
+  <p style="color: var(--stone-600); margin-bottom: 24px;">For feedback states. Muted, never bright — they should feel consistent with the brand, not alarming.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #2F6B4A; color: #FAF8F3;">✓</div>
+      <div class="color-info">
+        <strong>Success</strong>
+        <div class="hex">#2F6B4A</div>
+        <div class="rgb">Deep forest green</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #B8732E; color: #FAF8F3;">!</div>
+      <div class="color-info">
+        <strong>Warning</strong>
+        <div class="hex">#B8732E</div>
+        <div class="rgb">Burnt amber</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #9E2A2B; color: #FAF8F3;">✕</div>
+      <div class="color-info">
+        <strong>Error</strong>
+        <div class="hex">#9E2A2B</div>
+        <div class="rgb">Deep oxblood</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-sample" style="background: #2C5282; color: #FAF8F3;">i</div>
+      <div class="color-info">
+        <strong>Info</strong>
+        <div class="hex">#2C5282</div>
+        <div class="rgb">Steel blue</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-ratio">
+    <h4>Usage ratio</h4>
+    <p style="font-size: 15px; color: var(--stone-600); margin-bottom: 8px;">A disciplined ratio is what makes the brand feel premium rather than corporate or loud:</p>
+    <div class="ratio-bar">
+      <div class="ratio-segment" style="background: #FAF8F3; color: var(--navy); width: 65%;">Ivory / Stone 65%</div>
+      <div class="ratio-segment" style="background: #0D203B; color: #FAF8F3; width: 25%;">Navy 25%</div>
+      <div class="ratio-segment" style="background: #1A1A1A; color: #FAF8F3; width: 8%; font-size: 10px;">Ink 8%</div>
+      <div class="ratio-segment" style="background: #B68D3B; color: #0D203B; width: 2%; font-size: 10px;">●</div>
+    </div>
+    <div class="ratio-labels">
+      <span><strong>Ivory/Stone 65%</strong> — backgrounds, surfaces</span>
+      <span><strong>Navy 25%</strong> — brand, headlines, key UI</span>
+      <span><strong>Ink 8%</strong> — body text</span>
+      <span><strong>Gold 2%</strong> — accents only</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section id="type" style="background: var(--stone-100);">
+  <div class="section-number">04 — Typography</div>
+  <h2>Words with weight</h2>
+  <p class="section-lead">Typography is where a brand either earns its premium positioning or loses it. Our system uses two carefully paired fonts — one Arabic, one Latin — chosen to feel like a single voice across both languages.</p>
+
+  <div class="type-specimen">
+    <div class="type-specimen-meta">
+      <h4>Arabic — Primary</h4>
+      <code>IBM Plex Sans Arabic · Google Fonts · Free</code>
+    </div>
+    <div class="type-sample-arabic" style="font-size: 72px; font-weight: 600; color: var(--navy); line-height: 1.3;">تميّز في مسيرتك المهنية</div>
+    <div class="type-sample-arabic" style="font-size: 24px; font-weight: 500; color: var(--navy); margin-top: 16px;">ابنِ سيرتك الذاتية بثقة</div>
+    <div class="type-sample-arabic" style="font-size: 16px; font-weight: 400; color: var(--stone-600); margin-top: 16px; line-height: 1.7;">تميّز هو الرفيق الذكي الذي يساعدك على إبراز أفضل ما فيك أمام أصحاب العمل. نحن نفهم سوق العمل في المملكة العربية السعودية ودول الخليج، ونقدم لك الأدوات التي تحتاجها للتقدم بثقة في كل فرصة.</div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-specimen-meta">
+      <h4>Latin — Primary</h4>
+      <code>Inter · Google Fonts · Free</code>
+    </div>
+    <div class="type-sample-latin" style="font-size: 72px; font-weight: 600; color: var(--navy); line-height: 1.1; letter-spacing: -2px;">Stand out with confidence.</div>
+    <div class="type-sample-latin" style="font-size: 24px; font-weight: 500; color: var(--navy); margin-top: 16px; letter-spacing: -0.5px;">Build a CV that actually gets interviews.</div>
+    <div class="type-sample-latin" style="font-size: 16px; font-weight: 400; color: var(--stone-600); margin-top: 16px; line-height: 1.7;">Tamayaz is the AI-powered career copilot built for professionals in Saudi Arabia and the Gulf. We understand how hiring actually works here — from Saudization requirements to what recruiters at Aramco, STC, and the region's top employers really look for.</div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-specimen-meta">
+      <h4>Display — Editorial moments only</h4>
+      <code>Fraunces · Google Fonts · Free · Used sparingly</code>
+    </div>
+    <div style="font-family: var(--font-serif); font-size: 72px; font-weight: 400; color: var(--navy); line-height: 1; letter-spacing: -2px;">Your next chapter.</div>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--stone-600); font-style: italic;">Use Fraunces for hero headlines on the marketing site and printed materials only. Never in product UI. It carries editorial weight — use it to set a tone, not as a workhorse.</p>
+  </div>
+
+  <h3 style="margin-top: 60px; margin-bottom: 24px;">Type scale</h3>
+  <div style="background: var(--ivory); border: 1px solid var(--stone-300); border-radius: 12px; padding: 32px;">
+    <div class="type-scale-row">
+      <span class="type-scale-label">Display</span>
+      <span style="font-size: 48px; font-weight: 600; color: var(--navy); line-height: 1; letter-spacing: -1.5px;">Aa</span>
+      <span class="type-scale-specs">48–64px · 600</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Heading 1</span>
+      <span style="font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1; letter-spacing: -0.5px;">Aa</span>
+      <span class="type-scale-specs">36px · 600</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Heading 2</span>
+      <span style="font-size: 28px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px;">Aa</span>
+      <span class="type-scale-specs">28px · 600</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Heading 3</span>
+      <span style="font-size: 20px; font-weight: 600; color: var(--navy);">Aa</span>
+      <span class="type-scale-specs">20px · 600</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Body large</span>
+      <span style="font-size: 18px; font-weight: 400; color: var(--ink);">Aa</span>
+      <span class="type-scale-specs">18px · 400</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Body</span>
+      <span style="font-size: 16px; font-weight: 400; color: var(--ink);">Aa</span>
+      <span class="type-scale-specs">16px · 400</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Small</span>
+      <span style="font-size: 14px; font-weight: 400; color: var(--stone-600);">Aa</span>
+      <span class="type-scale-specs">14px · 400</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="type-scale-label">Caption</span>
+      <span style="font-size: 12px; font-weight: 500; color: var(--stone-600); letter-spacing: 1px; text-transform: uppercase;">Aa</span>
+      <span class="type-scale-specs">12px · 500</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; padding: 24px; background: var(--ivory); border-left: 3px solid var(--gold); border-radius: 8px;">
+    <h4 style="color: var(--gold-dark); margin-bottom: 8px;">Line height</h4>
+    <p style="font-size: 14px; margin: 0; color: var(--stone-600);">Arabic needs more vertical space than Latin. <strong>Latin:</strong> 1.5 for body, 1.2 for headlines. <strong>Arabic:</strong> 1.7 for body, 1.3 for headlines. Always test both languages side by side before shipping.</p>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section id="voice">
+  <div class="section-number">05 — Voice</div>
+  <h2>How we speak</h2>
+  <p class="section-lead">Our voice is the user's trusted advisor — the senior colleague who tells you the truth because they want you to succeed. We are clear, confident, and respectful. We never hype, never patronize, never fake warmth.</p>
+
+  <div class="voice-grid">
+    <div class="voice-pill">
+      <span class="voice-pill-tag">Tone</span>
+      <h3>Calm, expert, human</h3>
+      <p>We sound like someone who has been in the GCC hiring market for twenty years — not a product marketer trying to sell you something.</p>
+    </div>
+    <div class="voice-pill">
+      <span class="voice-pill-tag">Arabic</span>
+      <h3>فصحى مبسّطة</h3>
+      <p>Simplified Modern Standard Arabic — professional but warm, never stiff. Short sentences. Direct. Respectful.</p>
+    </div>
+    <div class="voice-pill">
+      <span class="voice-pill-tag">English</span>
+      <h3>FT reader, not Twitter</h3>
+      <p>Clear, confident, no jargon. No exclamation marks. No emoji in product UI. Precise word choice matters more than clever phrasing.</p>
+    </div>
+    <div class="voice-pill">
+      <span class="voice-pill-tag">Perspective</span>
+      <h3>You are the hero</h3>
+      <p>We talk about <em>your</em> career, <em>your</em> CV, <em>your</em> goals. We're the advisor in the background, not the star of the story.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 40px; margin-bottom: 24px;">Voice in practice</h3>
+
+  <div class="voice-examples">
+    <div class="voice-example good">
+      <div class="voice-example-label">Yes — like this</div>
+      <p>"Your CV is ready. We tailored three sections based on the role."</p>
+    </div>
+    <div class="voice-example bad">
+      <div class="voice-example-label">No — not like this</div>
+      <p>"🎉 Amazing! Your CV is ready to shine! ✨"</p>
+    </div>
+    <div class="voice-example good">
+      <div class="voice-example-label">Yes — like this</div>
+      <p>"Two sections need more detail before this CV is ready to send."</p>
+    </div>
+    <div class="voice-example bad">
+      <div class="voice-example-label">No — not like this</div>
+      <p>"Oops! Looks like we need just a tiny bit more info from you!"</p>
+    </div>
+    <div class="voice-example good">
+      <div class="voice-example-label">Yes — Arabic</div>
+      <p style="font-family: var(--font-arabic); direction: rtl;">"سيرتك الذاتية جاهزة. عدّلنا ثلاثة أقسام لتناسب هذه الوظيفة."</p>
+    </div>
+    <div class="voice-example bad">
+      <div class="voice-example-label">No — Arabic</div>
+      <p style="font-family: var(--font-arabic); direction: rtl;">"🎊 رائع! سيرتك الذاتية جاهزة وستتألق!"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLICATIONS ============ -->
+<section id="applications" style="background: var(--stone-100);">
+  <div class="section-number">06 — Applications</div>
+  <h2>The brand in the wild</h2>
+  <p class="section-lead">These are starting-point examples of how Tamayaz lives across real surfaces. The brand system should feel consistent whether it appears as a favicon, a business card, or a social post.</p>
+
+  <div class="app-grid">
+    <div class="app-mockup">
+      <div class="app-mockup-preview" style="background: var(--ivory);">
+        <div class="fav-browser">
+          <div class="fav-browser-bar">
+            <div class="fav-browser-dot"></div>
+            <div class="fav-browser-dot"></div>
+            <div class="fav-browser-dot"></div>
+            <div class="fav-browser-tab">
+              <div class="fav-icon">ت</div>
+              Tamayaz
+            </div>
+          </div>
+          <div style="padding: 40px; background: #FFFFFF; height: 80px; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: var(--font-arabic); font-size: 20px; font-weight: 700;">ت</div>
+            <div>
+              <div style="font-weight: 600; color: var(--navy); font-size: 13px;">tamayaz.com</div>
+              <div style="font-size: 11px; color: var(--stone-600);">Your career copilot</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="app-mockup-label">
+        <strong>Favicon & browser</strong>
+        <span>The monogram works at 16px. Navy background, gold ت letter.</span>
+      </div>
+    </div>
+
+    <div class="app-mockup">
+      <div class="app-mockup-preview" style="background: #E4E0D4;">
+        <div class="app-icon-mockup">
+          <div class="app-icon app-icon-generic"></div>
+          <div class="app-icon app-icon-generic-2"></div>
+          <div class="app-icon featured">
+            <span style="color: var(--gold); font-family: var(--font-arabic); font-size: 32px; font-weight: 700;">ت</span>
+          </div>
+          <div class="app-icon app-icon-generic-3"></div>
+        </div>
+      </div>
+      <div class="app-mockup-label">
+        <strong>Mobile app icon</strong>
+        <span>Monogram on navy. Recognizable on a home screen full of competitors.</span>
+      </div>
+    </div>
+
+    <div class="app-mockup">
+      <div class="app-mockup-preview" style="background: linear-gradient(135deg, #D4CFC2 0%, #E4E0D4 100%);">
+        <div class="card-mockup">
+          <div class="card-mockup-logo">ت</div>
+          <div>
+            <div class="card-mockup-name">Founder Name</div>
+            <div class="card-mockup-title">Founder & CEO · Tamayaz</div>
+          </div>
+        </div>
+      </div>
+      <div class="app-mockup-label">
+        <strong>Business card</strong>
+        <span>Generous ivory, restrained navy mark, minimal type. Premium through restraint.</span>
+      </div>
+    </div>
+
+    <div class="app-mockup">
+      <div class="app-mockup-preview" style="background: #D4CFC2;">
+        <div class="social-mockup">
+          <div class="social-header">
+            <div class="social-avatar">ت</div>
+            <div class="social-handle">
+              <strong>Tamayaz · تميّز</strong>
+              <span>@tamayaz</span>
+            </div>
+          </div>
+          <div class="social-body">
+            Built a master CV in Arabic and English. Used it to apply to four roles this week. Feels different this time.
+          </div>
+        </div>
+      </div>
+      <div class="app-mockup-label">
+        <strong>Social profile</strong>
+        <span>Navy header, monogram avatar. Consistent across X, LinkedIn, Instagram.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEV TOKENS ============ -->
+<section id="tokens" class="dark">
+  <div class="section-inner">
+    <div class="section-number">07 — Developer tokens</div>
+    <h2>Ready for code</h2>
+    <p class="section-lead">Paste these directly into Tailwind config, CSS variables, or design tokens. Every color, font, and spacing value below is the authoritative source of truth.</p>
+
+    <h3 style="margin-top: 40px; margin-bottom: 16px;">CSS variables</h3>
+<div class="code-block">
+<span class="token-comment">/* Tamayaz design tokens · v1.0 */</span><br>
+<span class="token-comment">/* Add to your root stylesheet or import as CSS module */</span><br><br>
+:root {<br>
+&nbsp;&nbsp;<span class="token-comment">/* Brand */</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-navy:</span> <span class="token-value">#0D203B;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-navy-900:</span> <span class="token-value">#050F1F;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-navy-700:</span> <span class="token-value">#1A3055;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-gold:</span> <span class="token-value">#B68D3B;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-gold-dark:</span> <span class="token-value">#8F6E26;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-gold-light:</span> <span class="token-value">#D4AE5E;</span><br><br>
+&nbsp;&nbsp;<span class="token-comment">/* Neutrals */</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-ivory:</span> <span class="token-value">#FAF8F3;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-stone-100:</span> <span class="token-value">#EFEBE2;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-stone-300:</span> <span class="token-value">#C9C2B3;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-stone-600:</span> <span class="token-value">#6B6558;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-ink:</span> <span class="token-value">#1A1A1A;</span><br><br>
+&nbsp;&nbsp;<span class="token-comment">/* Semantic */</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-success:</span> <span class="token-value">#2F6B4A;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-warning:</span> <span class="token-value">#B8732E;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-error:</span> <span class="token-value">#9E2A2B;</span><br>
+&nbsp;&nbsp;<span class="token-property">--color-info:</span> <span class="token-value">#2C5282;</span><br><br>
+&nbsp;&nbsp;<span class="token-comment">/* Type */</span><br>
+&nbsp;&nbsp;<span class="token-property">--font-sans:</span> <span class="token-value">'Inter', system-ui, sans-serif;</span><br>
+&nbsp;&nbsp;<span class="token-property">--font-arabic:</span> <span class="token-value">'IBM Plex Sans Arabic', sans-serif;</span><br>
+&nbsp;&nbsp;<span class="token-property">--font-serif:</span> <span class="token-value">'Fraunces', Georgia, serif;</span><br><br>
+&nbsp;&nbsp;<span class="token-comment">/* Radius */</span><br>
+&nbsp;&nbsp;<span class="token-property">--radius-sm:</span> <span class="token-value">6px;</span><br>
+&nbsp;&nbsp;<span class="token-property">--radius-md:</span> <span class="token-value">10px;</span><br>
+&nbsp;&nbsp;<span class="token-property">--radius-lg:</span> <span class="token-value">14px;</span><br>
+&nbsp;&nbsp;<span class="token-property">--radius-xl:</span> <span class="token-value">20px;</span><br>
+}
+</div>
+
+    <h3 style="margin-top: 48px; margin-bottom: 16px;">Tailwind config</h3>
+<div class="code-block">
+<span class="token-comment">// tailwind.config.ts · Tamayaz design system</span><br><br>
+export default {<br>
+&nbsp;&nbsp;theme: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extend: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colors: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">navy:</span> { DEFAULT: <span class="token-value">'#0D203B'</span>, 700: <span class="token-value">'#1A3055'</span>, 900: <span class="token-value">'#050F1F'</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">gold:</span> { DEFAULT: <span class="token-value">'#B68D3B'</span>, dark: <span class="token-value">'#8F6E26'</span>, light: <span class="token-value">'#D4AE5E'</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">ivory:</span> <span class="token-value">'#FAF8F3'</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">stone:</span> { 100: <span class="token-value">'#EFEBE2'</span>, 300: <span class="token-value">'#C9C2B3'</span>, 600: <span class="token-value">'#6B6558'</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">ink:</span> <span class="token-value">'#1A1A1A'</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontFamily: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">sans:</span> [<span class="token-value">'Inter'</span>, <span class="token-value">'system-ui'</span>, <span class="token-value">'sans-serif'</span>],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">arabic:</span> [<span class="token-value">'IBM Plex Sans Arabic'</span>, <span class="token-value">'sans-serif'</span>],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-property">serif:</span> [<span class="token-value">'Fraunces'</span>, <span class="token-value">'Georgia'</span>, <span class="token-value">'serif'</span>],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;},<br>
+}
+</div>
+
+    <h3 style="margin-top: 48px; margin-bottom: 16px;">Font imports</h3>
+<div class="code-block">
+<span class="token-comment">&lt;!-- Add to &lt;head&gt; of your HTML --&gt;</span><br>
+&lt;link rel=<span class="token-value">"preconnect"</span> href=<span class="token-value">"https://fonts.googleapis.com"</span>&gt;<br>
+&lt;link rel=<span class="token-value">"preconnect"</span> href=<span class="token-value">"https://fonts.gstatic.com"</span> crossorigin&gt;<br>
+&lt;link href=<span class="token-value">"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;family=Fraunces:ital,wght@0,400;0,500;1,400&amp;display=swap"</span> rel=<span class="token-value">"stylesheet"</span>&gt;
+</div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p><strong>Tamayaz Brand Guidelines</strong> · Version 1.0 · April 2026</p>
+  <p style="margin-top: 8px; opacity: 0.7;">This is a living document. As the product evolves, so will the brand. Please refer back to this guide for every design decision, and flag anything unclear.</p>
+  <p style="margin-top: 24px; font-family: var(--font-arabic); opacity: 0.6;">تميّز · the career copilot for the GCC</p>
+</footer>
+
+</body>
+</html>
