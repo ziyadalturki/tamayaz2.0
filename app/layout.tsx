@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Inter, IBM_Plex_Sans_Arabic, Fraunces } from "next/font/google";
+import { defaultLocale, isLocale } from "@/lib/i18n/locales";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,15 +31,20 @@ export const metadata: Metadata = {
     "AI-powered career copilot for professionals in Saudi Arabia and the GCC.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const localeHeader = headersList.get("x-locale") ?? undefined;
+  const locale = isLocale(localeHeader) ? localeHeader : defaultLocale;
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <html
-      lang="en"
-      dir="ltr"
+      lang={locale}
+      dir={dir}
       className={`${inter.variable} ${ibmPlexArabic.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">{children}</body>
